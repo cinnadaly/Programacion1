@@ -1,0 +1,18 @@
+Codigo programacion 6 veces
+ 
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        int txt = 0;
+        while(txt <=5)
+        {
+            Console.WriteLine("Programacion");
+            txt++;
+           
+        }
+    }
+}
+
