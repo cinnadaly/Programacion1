@@ -1,0 +1,15 @@
+using System;
+
+public class Ejercicio7
+{
+    public static void Main(string[] args)
+    {
+        int num;
+
+        for (num = 1; num<=10; num++)
+        {
+            Console.WriteLine("Numero: " + num);
+        }
+       
+    }
+}
