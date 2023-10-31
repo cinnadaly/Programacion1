@@ -1,0 +1,15 @@
+using System;
+
+public class Ejercicio7
+{
+    public static void Main(String[] args)
+    {
+        int i, num=0;
+           
+        for(i=0; i<=15; i += 1)
+        {
+            num=num+ i;
+        }
+        Console.WriteLine("El resultado final es: " + num);
+    }
+}
