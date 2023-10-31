@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    public static void Main (String [] args)
+    {
+        int n;
+        double g, res;
+
+        Console.WriteLine("===MENU===");
+        Console.WriteLine("[1] F a C");
+        Console.WriteLine("[2] C a F");
+        Console.WriteLine("Ingrese una opcion:");
+        n = int.Parse(Console.ReadLine());
+       
+        if(n==2) {
+            Console.WriteLine("Ingresa la temperatura");
+            g = double.Parse(Console.ReadLine());
+            res = (g*1.8) + 32 ;
+            Console.WriteLine("La conversion de C a F es: " + res);
+        }else if (n==1){
+            Console.WriteLine("Ingrese grados");
+            g = double.Parse(Console.ReadLine());
+            res = (g-32) / 1.8  ;
+            Console.WriteLine("La conversion de F a C es: " + res);
+        }else
+        Console.WriteLine("Opcion invalida");
+    }
+}
