@@ -24,7 +24,6 @@ public class ATM
         
         foreach (var billete in billetes)
             {
-            int sobrante;
             int cambio = Cantdin / billete;
             if(cambio > 0) 
             {
