@@ -18,7 +18,7 @@ public class Capturar10num
         Console.WriteLine("Los números de menor a mayor son:");
         Imprimnum(ascendente);
 
-        BuscarPorPosicion(numeros);
+        BuscarNumero(numeros);
 
     }
 
@@ -51,30 +51,65 @@ public class Capturar10num
 
     static int[] MenorAMayor(int[] numeros)
     {
-        int[] ascendente = new int[numeros.Length];
-        Array.Copy(numeros, ascendente, numeros.Length);
+        int n = numeros.Length;
+        int[] copiaNumeros = new int[n];
+        Array.Copy(numeros, copiaNumeros, n);
 
-        Array.Sort(ascendente);
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (copiaNumeros[j] > copiaNumeros[j + 1])
+                {
+                    int temp = copiaNumeros[j];
+                    copiaNumeros[j] = copiaNumeros[j + 1];
+                    copiaNumeros[j + 1] = temp;
+                }
+            }
+        }
 
-        return ascendente;
+        return copiaNumeros;
     }
 
-    static void BuscarPorPosicion(int[] numeros)
+    static void BuscarNumero(int[] numeros)
     {
-        int numpos = 0;
-        Console.WriteLine("Ingrese la posicion que desea consultar: ");
-        numpos = Convert.ToInt32(Console.ReadLine());
+        int numpos = 0, numbus = 0;
+        Console.WriteLine("Desea buscar un dato en baso de numero (N) o posicion (P) ?");
+        string opcion = Console.ReadLine();
 
-        if (numpos >=1 && numpos <= numeros.Length)
+        switch (opcion)
         {
-            int numbuscado = numeros[numpos - 1];
-            Console.WriteLine($"{numbuscado} se encuentra en la posicion {numpos} de la lista");
-        }
-        else
-        {
-            Console.WriteLine($"{numpos} no se encuentra en la lista");
+            case (opcion.ToLower() == "p")
+                Console.WriteLine("Ingrese la posicion que desea consultar");
+                numpos = Convert.ToInt32(Console.ReadLine());
+                if (numpos >= 1 && numpos <= numeros.Length)
+                {
+                    int numbuscado = numeros[numpos - 1];
+                    Console.WriteLine($"{numbuscado} se encuentra en la posicion {numpos} de la lista");
+                }
+                else
+                {
+                    Console.WriteLine($"{numpos} no se encuentra en la lista");
+                }
+                break;
+
+            case (opcion.ToLower() == "v")
+                Console.WriteLine("Ingrese el numero que desea buscar");
+                numbus = Convert.ToInt32(Console.ReadLine());
+                if (numbus >= 1 && numbus <= numeros.Length)
+                {
+                    int numbuscado = numeros[numbus - 1];
+                    Console.WriteLine($"{numbuscado} se encuentra en la posicion {numbus} de la lista");
+                }
+                else
+                {
+                    Console.WriteLine($"{numbus} no se encuentra en la lista");
+                }
+                break;
+
+            default:
+                Console.WriteLine("Se ha ingresado una opcion no valida");
+                break;
         }
     }
 }
-
-
